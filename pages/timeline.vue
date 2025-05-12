@@ -1,15 +1,10 @@
 <template>
-  <div class="container main">
-    <h1 class="title">
-      <NameDisplay :name="name" letterColor="#007bff" />
-    </h1>
+  <name-display :name="name" letterColor="#007bff" />
 
-    <Timeline />
-  </div>
+  <Timeline />
 </template>
 
 <script setup lang="ts">
-import NameDisplay from "~/components/NameDisplay.vue"; // Абсолютный путь
 import Timeline from "~/components/timeline/Timeline.vue"; // Абсолютный путь
 
 const name = "Nikita Pavlovskij".split("");

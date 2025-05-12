@@ -1,21 +1,15 @@
-// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-      './pages/**/*.{vue,js,ts,jsx,tsx}',
-      './layouts/**/*.{vue,js,ts,jsx,tsx}',
-      './components/**/*.{vue,js,ts,jsx,tsx}',
-      './app.vue',
-    ],
-    theme: {
-      extend: {},
-      screens: {
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1280px',
-        '2xl': '1536px',
-      },
-    },
-    plugins: [],
-  }
-  
+  content: [
+    './components/**/*.{vue,js,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './app.vue',
+    './plugins/**/*.{js,ts}',
+    './assets/**/*.{vue,js,ts}' // Добавьте, если используете стили в assets
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}

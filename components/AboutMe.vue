@@ -1,23 +1,21 @@
 <template>
   <div class="container main">
-    <h1 class="title">
-      <NameDisplay :name="name" letterColor="#007bff" />
-    </h1>
+    <name-display :name="name" letterColor="#007bff" />
     <h2 class="greeting">Привет!</h2>
     <p class="intro mt-3">Меня зовут Никита, я веб-разработчик</p>
     <p class="description mt-8 w-full mx-auto">
       Это моя домашняя страница. Тут можно найти мои проекты, сложенные в
       <NuxtLink to="/portfolio" class="link green">портфолио</NuxtLink>,
-      посмотреть моё <NuxtLink to="/resume" class="link resume">резюме</NuxtLink>,
-      <NuxtLink to="/timeline" class="link timeline">таймлайн</NuxtLink> и узнать
-      как
+      посмотреть моё
+      <NuxtLink to="/resume" class="link resume">резюме</NuxtLink>,
+      <NuxtLink to="/timeline" class="link timeline">таймлайн</NuxtLink> и
+      узнать как
       <NuxtLink to="/contact" class="link cyan">связаться со мной</NuxtLink>
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
-import NameDisplay from "./NameDisplay.vue";
 const name = "Nikita Pavlovskij".split("");
 </script>
 

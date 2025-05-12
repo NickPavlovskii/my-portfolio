@@ -1,21 +1,23 @@
 <template>
-  <span class="name-underline">
-    <span
-      v-for="(char, index) in name"
-      :key="index"
-      :style="{
-        animationDelay: `${index * 0.05}s`,
-        color: char === 'N' || char === 'P' ? letterColor : '',
-      }"
-      :class="[
-        'letter',
-        { 'blue-letter': char === 'N' || char === 'P' },
-        { space: char === ' ' },
-      ]"
-    >
-      {{ char === " " ? "\u00A0" : char }}
+  <h1 class="title">
+    <span class="name-underline">
+      <span
+        v-for="(char, index) in name"
+        :key="index"
+        :style="{
+          animationDelay: `${index * 0.05}s`,
+          color: char === 'N' || char === 'P' ? letterColor : '',
+        }"
+        :class="[
+          'letter',
+          { 'blue-letter': char === 'N' || char === 'P' },
+          { space: char === ' ' },
+        ]"
+      >
+        {{ char === " " ? "\u00A0" : char }}
+      </span>
     </span>
-  </span>
+  </h1>
 </template>
 
 <script setup lang="ts">
@@ -45,7 +47,16 @@ const letterColor = computed(() => props.letterColor);
     transform: translateY(0);
   }
 }
+.title {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-bottom: 0.25rem;
+  font-size: 86px;
+  font-weight: 450;
+  line-height: 1.1;
+}
 .name-underline {
+  font-family: "Montserrat", sans-serif;
   position: relative;
   display: inline-block;
   cursor: pointer;
