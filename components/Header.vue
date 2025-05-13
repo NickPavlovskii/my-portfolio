@@ -115,7 +115,7 @@ function toggleTheme() {
 }
 
 .active-portfolio {
-  color: #007bff;
+  color: #08b200;
 }
 
 .active-resume {

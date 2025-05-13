@@ -29,15 +29,64 @@
           <h3>
             Что я умею – мои <span class="highlight hard">hard-skills</span>
           </h3>
-          <ul>
-            <li>Мой основной ЯП – JS</li>
-            <li>Хорошо знаю Python, работаю на Java(8+)</li>
-            <li>Работал с React, Vue, Svelte</li>
-            <li>Знаю SQL и NoSQL, ORM, REST</li>
-            <li>Опыт с Docker, CI/CD, Ansible, Jenkins</li>
-            <li>Работаю под Windows и Linux</li>
-            <li>UI/UX, Figma, проектирование интерфейсов</li>
-          </ul>
+          <div style="display: flex;">
+            <div style="max-width: 550px;">
+              <ul>
+                <li>
+                  Мой основной язык программирования –
+                  <strong class="tech-js">JavaScript (JS)</strong>
+                </li>
+                <li>
+                  Глубокое знание <strong class="tech-python">Python</strong> –
+                  опыт создания нейросетей и анализа данных
+                </li>
+                <li>
+                  Навыки составления документации – уверенное владение
+                  <strong class="tech-uml">UML</strong> и
+                  <strong class="tech-bpmn">BPMN</strong> нотациями
+                </li>
+                <li>
+                  Работа с веб-фреймворками – понимаю их назначение. Люблю
+                  <strong class="tech-vue">Vue</strong> 2/3 (3 года опыта),
+                  работал с <strong class="tech-react">React</strong> и
+                  ванильным <strong class="tech-js">JS</strong> +
+                  <strong class="tech-ts">TypeScript</strong>
+                </li>
+                <li>
+                  Тестирование и разработка – опыт написания тестов и
+                  использования
+                  <strong class="tech-storybook">Storybook</strong>
+                </li>
+                <li>
+                  Принципы разработки – понимаю
+                  <strong class="tech-oop">ООП</strong> и
+                  <strong class="tech-solid">SOLID</strong>, знаю их ценность и
+                  применение
+                </li>
+                <li>
+                  Базы данных и API – уверенное знание
+                  <strong class="tech-sql">SQL</strong>,
+                  <strong class="tech-nosql">NoSQL</strong> и
+                  <strong class="tech-rest">REST</strong>
+                </li>
+                <li>
+                  DevOps и управление – опыт с
+                  <strong class="tech-docker">Docker</strong>,
+                  <strong class="tech-jenkins">Jenkins</strong> и
+                  <strong class="tech-jira">Jira</strong>
+                </li>
+                <li>
+                  Кроссплатформенность – комфортно работаю под Windows и Linux
+                </li>
+                <li>
+                  UI/UX-дизайн – начальные навыки, создаю эстетичные и удобные
+                  интерфейсы в <strong class="tech-figma">Figma</strong>
+                </li>
+              </ul>
+            </div>
+
+            <SkillsChart />
+          </div>
 
           <h3>Какой я – мои <span class="highlight soft">soft-skills</span></h3>
           <ul>
@@ -57,12 +106,16 @@
 
 <script setup lang="ts">
 import downloadIcon from "@/assets/img/download-icon.svg";
+import SkillsChart from "../components/SkillsChart.vue";
 const name = "Nikita Pavlovskij".split("");
 </script>
 
 <style scoped>
+.dark .resume :deep(.apexcharts-legend-text) {
+  color: white !important;
+}
 .resume {
-  max-width: 1200px;
+  max-width: 1700px;
   margin: 0 auto;
   padding: 2rem;
   font-family: "Segoe UI", sans-serif;
@@ -93,6 +146,7 @@ const name = "Nikita Pavlovskij".split("");
   width: 100%;
   max-width: 300px;
   margin-bottom: 1rem;
+  margin-right: 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -137,4 +191,42 @@ li {
 .highlight.soft {
   color: #673ab7;
 }
+/* Цвета для технологий */
+.tech-js,
+.tech-ts {
+  color: #f7df1e;
+} /* Желтый для JS и TypeScript */
+.tech-python {
+  color: #3776ab;
+} /* Синий для Python */
+.tech-uml,
+.tech-bpmn {
+  color: #2e8b57;
+} /* Зеленый для UML и BPMN */
+.tech-vue {
+  color: #42b983;
+} /* Зеленый для Vue */
+.tech-react {
+  color: #61dafb;
+} /* Голубой для React */
+.tech-storybook {
+  color: #ff4785;
+} /* Розовый для Storybook */
+.tech-oop,
+.tech-solid {
+  color: #8a2be2;
+} /* Фиолетовый для ООП и SOLID */
+.tech-sql,
+.tech-nosql,
+.tech-rest {
+  color: #ff6347;
+} /* Томатный для SQL, NoSQL, REST */
+.tech-docker,
+.tech-jenkins,
+.tech-jira {
+  color: #2496ed;
+} /* Синий для Docker, Jenkins, Jira */
+.tech-figma {
+  color: #f24e1e;
+} /* Оранжевый для Figma */
 </style>
