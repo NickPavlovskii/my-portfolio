@@ -11,4 +11,9 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
   plugins: [{ src: "~/plugins/apexcharts.client.js", mode: "client" }],
+  ssr: false,
+  target: "static",
+  app: {
+    baseURL: "/my-portfolio", // ВАЖНО: имя твоего репозитория на GitHub
+  },
 });
