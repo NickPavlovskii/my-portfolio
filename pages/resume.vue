@@ -29,8 +29,8 @@
           <h3>
             Что я умею – мои <span class="highlight hard">hard-skills</span>
           </h3>
-          <div style="display: flex;">
-            <div style="max-width: 550px;">
+          <div class="skills-container">
+            <div style="max-width: 550px" class="skills-text">
               <ul>
                 <li>
                   Мой основной язык программирования –
@@ -85,7 +85,9 @@
               </ul>
             </div>
 
-            <SkillsChart />
+            <div class="skills-wrapper">
+              <SkillsChart />
+            </div>
           </div>
 
           <h3>Какой я – мои <span class="highlight soft">soft-skills</span></h3>
@@ -139,9 +141,7 @@ const name = "Nikita Pavlovskij".split("");
   flex: 1 1 300px;
   text-align: center;
 }
-.right {
-  display: flex;
-}
+
 .photo {
   width: 100%;
   max-width: 300px;
@@ -229,4 +229,38 @@ li {
 .tech-figma {
   color: #f24e1e;
 } /* Оранжевый для Figma */
+.skills-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.skills-text {
+  max-width: 550px;
+}
+
+.skills-wrapper {
+  flex-shrink: 0;
+}
+.right {
+  display: flex;
+  flex-direction: row;
+}
+/* 📱 Мобильная версия: SkillsChart переносим вниз */
+@media (max-width: 767px) {
+  .skills-container {
+    flex-direction: column;
+  }
+  .right {
+    flex-direction: column;
+  }
+  .skills-wrapper {
+    order: 2;
+    margin-top: 1rem;
+  }
+
+  .skills-text {
+    order: 1;
+  }
+}
 </style>
