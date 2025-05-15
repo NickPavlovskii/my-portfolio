@@ -94,4 +94,14 @@ const letterColor = computed(() => props.letterColor);
 .blue-letter {
   color: blue;
 }
+
+@media (max-width: 768px) {
+  .title {
+
+    font-size: 40px;
+    font-weight: 450;
+    line-height: 1.1;
+  }
+
+}
 </style>

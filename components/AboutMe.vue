@@ -20,11 +20,6 @@ const name = "Nikita Pavlovskij".split("");
 </script>
 
 <style scoped lang="scss">
-.title {
-  font-size: 86px;
-  font-weight: 450;
-  line-height: 1.1;
-}
 
 .greeting {
   font-size: 2rem;

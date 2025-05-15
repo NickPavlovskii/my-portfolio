@@ -15,7 +15,9 @@ export default defineNuxtPlugin((nuxtApp) => {
     icons: {
       defaultSet: "mdi",
       aliases,
-      sets: { mdi },
+      sets: {
+        mdi,
+      },
     },
     theme: {
       defaultTheme: "light",
