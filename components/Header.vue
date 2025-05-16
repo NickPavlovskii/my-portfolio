@@ -8,8 +8,6 @@
       <span class="letter">a</span>
       <span class="letter">d</span>
     </NuxtLink>
-
-    <!-- Навигация -->
     <nav :class="['nav', { open: isOpen }]">
       <NuxtLink
         to="/portfolio"
@@ -18,7 +16,6 @@
         @click="closeMenu"
         >Портфолио</NuxtLink
       >
-
       <NuxtLink
         to="/resume"
         class="nav-link"
@@ -26,7 +23,6 @@
         @click="closeMenu"
         >Резюме</NuxtLink
       >
-
       <NuxtLink
         to="/contact"
         class="nav-link"
@@ -34,26 +30,28 @@
         @click="closeMenu"
         >Контакты</NuxtLink
       >
-
       <NuxtLink
         to="/timeline"
         class="nav-link"
-        :class="{ 'active-timeline': $route.path === '/timeline' }"
+        :class="{ active: $route.path === '/timeline' }"
         @click="closeMenu"
         >Таймлайн</NuxtLink
       >
     </nav>
-    <div style="display: flex">
-      <!-- Иконка темы -->
+    <div class="right-panel" style="display: flex">
       <div class="theme-icon" @click="toggleTheme">
         <img :src="icon" width="25" />
       </div>
-      <!-- Бургер -->
-      <button class="burger" @click="isOpen = !isOpen">
-        <span :class="{ open: isOpen }"></span>
-        <span :class="{ open: isOpen }"></span>
-        <span :class="{ open: isOpen }"></span>
-      </button>
+
+      <div
+        class="burger"
+        :class="isOpen ? 'is-open' : 'is-closed'"
+        @click="isOpen = !isOpen"
+      >
+        <div class="menu-bar"></div>
+        <div class="menu-bar"></div>
+        <div class="menu-bar"></div>
+      </div>
     </div>
   </header>
 </template>
@@ -88,17 +86,17 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  position: relative;
+  padding: 1rem 2rem;
   font-family: "Montserrat", sans-serif;
+  position: relative;
 }
 
 .logo {
   font-size: 1.75rem;
   font-weight: bold;
-  text-decoration: none;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .letter {
@@ -123,7 +121,7 @@ onMounted(() => {
   color: inherit;
 }
 
-.nav-link.router-link-active {
+.nav-link.active {
   font-weight: bold;
   text-decoration: underline;
 }
@@ -141,74 +139,149 @@ onMounted(() => {
   color: #007bff;
 }
 
-/* Бургер */
 .burger {
+  margin-left: 10px;
   display: none;
   flex-direction: column;
-  gap: 5px;
-  margin-top: 5px;
   cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
 }
 
-.burger span {
+.menu-bar {
   width: 25px;
   height: 3px;
-  background: black;
-  transition: all 0.3s ease;
+  margin: 2px 0;
+  border-radius: 4px;
+  background-color: black;
+  box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.2);
+  transform-origin: center;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
 
-.burger span.open:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.burger span.open:nth-child(2) {
-  opacity: 0;
-}
-.burger span.open:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+.dark .menu-bar {
+  background-color: white;
 }
 
-/* Mobile styles */
+/* Открытие */
+.is-open .menu-bar:first-child {
+  animation-name: topBarOpen;
+}
+.is-open .menu-bar:nth-child(2) {
+  animation-name: middleBarOpen;
+}
+.is-open .menu-bar:last-child {
+  animation-name: bottomBarOpen;
+}
+
+/* Закрытие */
+.is-closed .menu-bar:first-child {
+  animation-name: topBarClose;
+}
+.is-closed .menu-bar:nth-child(2) {
+  animation-name: middleBarClose;
+}
+.is-closed .menu-bar:last-child {
+  animation-name: bottomBarClose;
+}
+
+/* Анимации */
+@keyframes topBarOpen {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(6px) rotate(45deg);
+  }
+}
+@keyframes bottomBarOpen {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(-6px) rotate(135deg);
+  }
+}
+@keyframes middleBarOpen {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes topBarClose {
+  0% {
+    transform: translateY(6px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes bottomBarClose {
+  0% {
+    transform: translateY(-6px) rotate(135deg);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes middleBarClose {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Мобильная адаптация */
 @media (max-width: 768px) {
   .nav {
     display: none;
+    flex-direction: column;
     position: absolute;
-    top: 90%;
+    top: 100%;
     left: 0;
     right: 0;
     background: white;
-    flex-direction: column;
     padding: 1rem;
-    z-index: 10;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
   }
 
   .nav.open {
     display: flex;
   }
-  .dark .nav {
-    background: #121212;
-  }
-  .dark .burger span {
-    background-color: white;
-    color: white;
-  }
+
   .burger {
     display: flex;
   }
 
-  .theme-icon {
-    margin-left: 10px;
-    order: 2;
-  }
-  .dark .underline {
-    border-bottom: 3px solid white;
+  .dark .nav {
+    background: #121212;
   }
 
-  .nav-link:hover {
-    text-decoration: underline;
+  .dark .burger .menu-bar {
+    background-color: white;
   }
 }
 </style>
