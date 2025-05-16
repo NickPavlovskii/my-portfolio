@@ -1,31 +1,31 @@
 <template>
-    <div class="skills-chart">
-      <ClientOnly>
-        <apexchart
-          type="polarArea"
-          height="350"
-          :options="chartOptions"
-          :series="series"
-        />
-      </ClientOnly>
-    </div>
-  </template>
-  
-  <script setup lang="ts">
+  <div class="skills-chart">
+    <ClientOnly>
+      <apexchart
+        type="polarArea"
+        height="350"
+        :options="chartOptions"
+        :series="series"
+      />
+    </ClientOnly>
+  </div>
+</template>
+
+<script setup lang="ts">
   const series = [70, 35, 10]
-  
+
   const chartOptions = {
     chart: {
       height: 550,
       type: 'polarArea',
     },
-    labels: ['Vue', 'React', 'Angular'], // Фреймворки
-    colors: ['#00E396', '#008FFB', '#FF4560'], // Цвета
+    labels: ['Vue', 'React', 'Angular'],
+    colors: ['#00E396', '#008FFB', '#FF4560'],
     stroke: {
-      colors: ['#fff']
+      colors: ['#fff'],
     },
     fill: {
-      opacity: 0.8
+      opacity: 0.8,
     },
     legend: {
       position: 'bottom',
@@ -33,25 +33,25 @@
     },
     yaxis: {
       show: false,
-      max: 100
+      max: 100,
     },
     plotOptions: {
       polarArea: {
         rings: {
-          strokeWidth: 0
+          strokeWidth: 0,
         },
         spokes: {
-          strokeWidth: 0
+          strokeWidth: 0,
         },
-      }
-    }
+      },
+    },
   }
-  </script>
-  
-  <style scoped>
+</script>
+
+<style scoped>
   .skills-chart {
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem;
   }
-  </style>
+</style>
