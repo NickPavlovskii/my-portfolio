@@ -1,6 +1,5 @@
 <template>
   <name-display :name="name" letterColor="#007bff" />
-
   <Timeline />
 </template>
 
@@ -10,10 +9,4 @@ import Timeline from "~/components/timeline/Timeline.vue"; // Абсолютны
 const name = "Nikita Pavlovskij".split("");
 </script>
 
-<style scoped>
-.title {
-  font-size: 86px;
-  font-weight: 450;
-  line-height: 1.1;
-}
-</style>
+<style scoped></style>
