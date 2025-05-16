@@ -146,6 +146,7 @@ onMounted(() => {
   display: none;
   flex-direction: column;
   gap: 5px;
+  margin-top: 5px;
   cursor: pointer;
   background: none;
   border: none;

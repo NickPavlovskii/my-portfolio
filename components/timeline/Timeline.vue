@@ -76,11 +76,6 @@ const filteredEvents = computed(() => {
   text-align: center;
 }
 
-.title {
-  font-size: 24px;
-  margin-bottom: 0.5rem;
-}
-
 .description {
   margin-bottom: 2rem;
   max-width: 700px;
@@ -244,5 +239,61 @@ const filteredEvents = computed(() => {
 .fade-slide-leave-to {
   opacity: 0;
   transform: translateY(-20px);
+}
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline-event {
+    width: 100%;
+    padding: 1rem;
+    left: 0 !important;
+    text-align: left !important;
+    margin-left: 1.5rem;
+  }
+
+  .timeline-event.left,
+  .timeline-event.right {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline-event .circle {
+    left: -24px !important;
+    right: auto !important;
+  }
+
+  .tooltip-container {
+    margin-left: 0;
+  }
+
+  .tooltip-text {
+    bottom: auto;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 14px;
+    padding: 0 1rem;
+  }
+
+  .event-content {
+    padding: 0.75rem 1rem;
+  }
+
+  .event-content h3 {
+    font-size: 16px;
+  }
+
+  .event-content p {
+    font-size: 14px;
+  }
 }
 </style>
