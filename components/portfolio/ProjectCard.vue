@@ -6,7 +6,6 @@
     @mouseleave="isHovered = false"
     @click="navigateToProject"
   >
-
     <v-card-title class="text-lg font-semibold text-gray-800">
       {{ project.title }}
     </v-card-title>
@@ -20,11 +19,20 @@
         <v-icon small>mdi-github</v-icon>
         {{ project.stack }}
       </div>
-
     </v-card-text>
     <v-card-actions class="card-actions">
-      <a :href="project.github" target="_blank" class="github-link" @click.stop>
-        <v-img height="24" width="24" :src="githubIcon" alt="GitHub" />
+      <a
+        target="_blank"
+        class="github-link"
+        :href="project.github"
+        @click.stop
+      >
+        <v-img
+          height="24"
+          width="24"
+          alt="GitHub"
+          :src="githubIcon"
+        />
       </a>
 
       <a
@@ -37,14 +45,14 @@
         <v-icon small>mdi-play-circle-outline</v-icon>
       </a>
 
-      <!-- Теги -->
       <div class="tags-container">
         <v-chip
           v-for="tag in project.tags"
-          :key="tag"
-          :color="tagColors[tag] || 'gray'"
           small
           class="tag-chip"
+          в
+          :key="tag"
+          :color="tagColors[tag] || 'gray'"
         >
           {{ tag }}
         </v-chip>
@@ -54,106 +62,106 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { navigateTo } from "#app";
-import githubIcon from "~/assets/img/social/github.svg";
-import { TAG_COLORS } from "./projects";
+  import { ref } from 'vue'
+  import { navigateTo } from '#app'
+  import githubIcon from '~/assets/img/social/github.svg'
+  import { TAG_COLORS } from './projects'
 
-const props = defineProps<{
-  project: {
-    id: number;
-    title: string;
-    description: string;
-    stack: string;
-    time?: number;
-    tags: string[];
-    github: string;
-    projectUrl: string;
-    image?: string;
-    demoUrl?: string;
-  };
-}>();
+  const props = defineProps<{
+    project: {
+      id: number
+      title: string
+      description: string
+      stack: string
+      time?: number
+      tags: string[]
+      github: string
+      projectUrl: string
+      image?: string
+      demoUrl?: string
+    }
+  }>()
 
-const isHovered = ref(false);
-const tagColors = TAG_COLORS;
+  const isHovered = ref(false)
+  const tagColors = TAG_COLORS
 
-const navigateToProject = async () => {
-  try {
-    await navigateTo(props.project.projectUrl);
-  } catch (err) {
-    console.error("Navigation error:", err);
+  const navigateToProject = async () => {
+    try {
+      await navigateTo(props.project.projectUrl)
+    } catch (err) {
+      console.error('Navigation error:', err)
+    }
   }
-};
 </script>
 
 <style scoped>
-.project-card {
-  border-radius: 8px;
-  padding: 1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.project-card.selected {
-  border: 2px solid #00cc00;
-}
-
-.v-card__title,
-.v-card__subtitle,
-.v-card__text,
-.v-chip {
-  ::selection {
-    background-color: #00cc00;
-    color: #fff;
+  .project-card {
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
-}
 
-.v-card__title {
-  word-break: break-word;
-}
+  .project-card.selected {
+    border: 2px solid #00cc00;
+  }
 
-.v-card__subtitle {
-  margin-bottom: 0.5rem;
-}
+  .v-card__title,
+  .v-card__subtitle,
+  .v-card__text,
+  .v-chip {
+    ::selection {
+      background-color: #00cc00;
+      color: #fff;
+    }
+  }
 
-.v-card__text {
-  padding-top: 0;
-}
+  .v-card__title {
+    word-break: break-word;
+  }
 
-.stack-container,
-.time-container {
-  display: flex;
-  align-items: center;
-  margin-top: 4px;
-}
+  .v-card__subtitle {
+    margin-bottom: 0.5rem;
+  }
 
-.stack-container .v-icon,
-.time-container .v-icon {
-  margin-right: 4px;
-}
+  .v-card__text {
+    padding-top: 0;
+  }
 
-.card-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .stack-container,
+  .time-container {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
 
-.github-link,
-.demo-link {
-  display: flex;
-  align-items: center;
-  margin-right: 8px;
-}
+  .stack-container .v-icon,
+  .time-container .v-icon {
+    margin-right: 4px;
+  }
 
-.tags-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  flex: 1;
-}
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.tag-chip {
-  margin: 0 4px 4px 0;
-  font-size: 0.75rem;
-}
+  .github-link,
+  .demo-link {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex: 1;
+  }
+
+  .tag-chip {
+    margin: 0 4px 4px 0;
+    font-size: 0.75rem;
+  }
 </style>

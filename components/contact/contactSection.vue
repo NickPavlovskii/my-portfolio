@@ -43,40 +43,40 @@
 </template>
 
 <script setup>
-import ContactItem from "./ContactItem.vue";
-import mailIcon from "../assets/img/social/mail.svg";
-import tgIcon from "../assets/img/social/tg.svg";
-import vkIcon from "../assets/img/social/vk.svg";
-import githubIcon from "../assets/img/social/github.svg";
-import gitlabIcon from "../assets/img/social/gitlab.svg";
+  import ContactItem from './ContactItem.vue'
+  import mailIcon from '../assets/img/social/mail.svg'
+  import tgIcon from '../assets/img/social/tg.svg'
+  import vkIcon from '../assets/img/social/vk.svg'
+  import githubIcon from '../assets/img/social/github.svg'
+  import gitlabIcon from '../assets/img/social/gitlab.svg'
 </script>
 
 <style scoped>
-.contacts {
-  padding: 2rem;
-  text-align: center;
-}
+  .contacts {
+    padding: 2rem;
+    text-align: center;
+  }
 
-.contacts__title {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.2rem;
-}
+  .contacts__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+  }
 
-.contacts__subtitle {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 2rem;
-}
+  .contacts__subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
 
-.contacts__grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  margin-bottom: 2rem;
-  align-items: center;
-  justify-content: center;
-}
+  .contacts__grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
 </style>
