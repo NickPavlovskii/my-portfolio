@@ -1,23 +1,28 @@
 <template>
-  <h1 class="title">
-    <span class="name-underline">
-      <span
-        v-for="(char, index) in name"
-        :key="index"
-        :style="{
-          animationDelay: `${index * 0.05}s`,
-          color: char === 'N' || char === 'P' ? letterColor : '',
-        }"
-        :class="[
-          'letter',
-          { 'blue-letter': char === 'N' || char === 'P' },
-          { space: char === ' ' },
-        ]"
-      >
-        {{ char === ' ' ? '\u00A0' : char }}
+  <NuxtLink
+    to="/"
+    class="logo"
+  >
+    <h1 class="title">
+      <span class="name-underline">
+        <span
+          v-for="(char, index) in name"
+          :key="index"
+          :style="{
+            animationDelay: `${index * 0.05}s`,
+            color: char === 'N' || char === 'P' ? letterColor : '',
+          }"
+          :class="[
+            'letter',
+            { 'blue-letter': char === 'N' || char === 'P' },
+            { space: char === ' ' },
+          ]"
+        >
+          {{ char === ' ' ? '\u00A0' : char }}
+        </span>
       </span>
-    </span>
-  </h1>
+    </h1>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">
