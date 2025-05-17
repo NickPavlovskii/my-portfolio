@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-  import contactSection from '~/components/contact/ContactSection.vue'
+  import contactSection from '~/components/contact/contactSection.vue'
   const name = 'Nikita Pavlovskij'.split('')
 </script>
 
