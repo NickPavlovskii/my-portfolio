@@ -1,34 +1,4 @@
 <template>
-  <div class="container main">
-    <h2 class="title">Таймлайн</h2>
-    <p class="description">
-      События из моей жизни и профессиональной деятельности
-    </p>
-    <div class="filters">
-      <div class="filter-item">
-        <PixelButton
-          v-for="t in types"
-          :key="t"
-          :color="'#2c2c38'"
-          :hoverColor="typeColor[t]"
-          :class="[{ active: activeType === t }]"
-          @click="activeType = t"
-        >
-          {{ t === '' ? 'Все' : t === 'education' ? 'Учёба' : 'Работа' }}
-        </PixelButton>
-        <div class="tooltip-container">
-          <v-img
-            class="white-icon"
-            contain
-            width="25"
-            :src="helpIcon"
-          />
-          <span class="tooltip-text">
-            выбирайте топики чтобы отфильтровать таймлайн
-          </span>
-        </div>
-      </div>
-    </div>
     <div class="timeline">
       <div
         v-for="(event, index) in filteredEvents"
@@ -54,98 +24,26 @@
         </div>
       </div>
     </div>
-  </div>
+
 </template>
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import PixelButton from '../PixelButton.vue'
-  import helpIcon from '@/assets/img/help-circle.svg'
+
   import { events as educationAndWork } from './events'
 
-  const activeType = ref('')
-  const types = ['', 'education', 'work']
+  const props = defineProps<{
+  activeType: string
+}>()
 
-  const typeColor: Record<string, string> = {
-    education: '#4caf50',
-    work: '#f44336',
-  }
+const filteredEvents = computed(() => {
+  if (!props.activeType) return educationAndWork
+  return educationAndWork.filter(e => e.type === props.activeType)
+})
 
-  const filteredEvents = computed(() => {
-    return activeType.value
-      ? educationAndWork.filter((e) => e.type === activeType.value)
-      : educationAndWork
-  })
 </script>
 
 <style scoped>
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 1rem;
-
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .description {
-    margin-bottom: 2rem;
-    max-width: 700px;
-  }
-
-  .filters {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .filter-item {
-    display: flex;
-    align-items: center;
-  }
-
-  .tooltip-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-    cursor: pointer;
-  }
-
-  .tooltip-text {
-    z-index: 1000;
-    visibility: hidden;
-    background-color: #333;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    position: absolute;
-    bottom: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-  }
-
-  .tooltip-container:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .dark .description {
-    color: white;
-  }
-
-  .dark .white-icon {
-    filter: brightness(0) invert(1);
-  }
-
   .timeline {
     position: relative;
     max-width: 1000px;
@@ -165,14 +63,14 @@
 
   .timeline-event {
     position: relative;
-    width: 77%;
+    width: 74%;
     padding: 1.5rem 2rem;
     box-sizing: border-box;
     animation: fadeIn 0.5s ease forwards;
   }
 
   .timeline-event.left {
-    left: -27%;
+    left: -24%;
     text-align: right;
   }
 
@@ -183,7 +81,6 @@
 
   .event-content {
     background-color: #1c1c24;
-
     padding: 1rem 1.5rem;
     border-radius: 12px;
     border: 1px solid rgba(0, 120, 255, 0.5);
