@@ -39,15 +39,16 @@
     <v-img
       height="240"
       width="240"
-      class="mt-15 d-sm-none"
-      :src="me"
+      class="mt-12 d-sm-none"
+      src="./me2.png"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+
   const name = 'Nikita Pavlovskij'.split('')
-  import me from './me.png'
+
 </script>
 <style scoped lang="scss">
   .greeting {

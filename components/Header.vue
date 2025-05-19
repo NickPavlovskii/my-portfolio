@@ -115,6 +115,13 @@
           Таймлайн
         </NuxtLink>
       </div>
+      <div class="bottom-image-container d-sm-none">
+        <v-img
+          height="240"
+          width="240"
+          src="./me.png"
+        />
+      </div>
     </div>
   </header>
 </template>
@@ -159,7 +166,33 @@
     z-index: 1001;
     flex-wrap: wrap;
   }
+  .slide-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 1rem;
+  }
 
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .bottom-image-container {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+
+  .bottom-image-container {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+  }
   .logo {
     font-size: 1.75rem;
     font-weight: bold;
