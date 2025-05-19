@@ -109,15 +109,10 @@
           {{ link.name }}
         </v-btn>
         <div
-          v-if="project.images"
+          v-if="project?.images.length"
           class="carousel"
         >
-          <h3
-            v-if="project?.images.length"
-            class="section-subheading"
-          >
-           Фотографии
-          </h3>
+          <h3 class="section-subheading">Фотографии</h3>
           <v-carousel
             show-arrows="hover"
             class="rounded-lg elevation-3 mt-10"
