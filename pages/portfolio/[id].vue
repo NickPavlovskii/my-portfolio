@@ -7,7 +7,7 @@
       >
         <h1 class="project-title">
           <span class="yellow-text">{{ firstLetter }}</span>
-          {{ restTitle }}
+          <span>{{ restTitle }}</span>
         </h1>
 
         <p class="project-subtitle">
@@ -110,13 +110,13 @@
         </v-btn>
         <div
           v-if="project?.images.length"
-          class="carousel"
+          class="carousel-section"
         >
           <h3 class="section-subheading">Фотографии</h3>
           <v-carousel
             show-arrows="hover"
-            class="rounded-lg elevation-3 mt-10"
-            height="500"
+            class="rounded-lg elevation-3 mt-10 carousel"
+            height="100%"
             width="600"
           >
             <v-carousel-item
@@ -175,8 +175,12 @@
     font-size: 2.5rem;
     font-weight: bold;
   }
-  .carousel :deep(.v-btn--active) {
+  .carousel-section :deep(.v-btn--active) {
     background-color: #fdd835;
+  }
+  .carousel {
+    min-height: 200px;
+    max-height: 500px;
   }
   .yellow-text {
     color: #fdd835;

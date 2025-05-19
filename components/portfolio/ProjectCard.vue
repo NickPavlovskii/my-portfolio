@@ -41,7 +41,6 @@
         />
       </a>
 
-
       <div class="tags-container">
         <v-chip
           v-for="tag in project.tags"
