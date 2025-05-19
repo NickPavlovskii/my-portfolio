@@ -179,7 +179,7 @@ export const PROJECTS = [
       'Проект решает задачу инвентаризации зелёных зон в городской среде, соответствуя современным требованиям градостроительства и управления городской экологией.',
     stack:
       'HTML, CSS, JavaScript, Python, PostGIS, GeoTIFF, DeepForest, SegFormer, GeoServer',
-    framework: 'Vanilla JS / Python API',
+    framework: 'JS, Python',
     tags: ['GIS', 'Диплом', 'GeoTIFF', 'Segmentation', 'PostGIS'],
     github: 'https://github.com/your-username/gis-green-zones',
     demoUrl: 'http://serv.sae.ru/',
@@ -318,7 +318,7 @@ export const PROJECTS = [
       'Проект представляет собой реализацию генеративной состязательной нейросети (GAN), предназначенной для создания фотореалистичных изображений лиц. Использована архитектура StyleGAN2 от NVIDIA. Обучение и генерация происходят в среде Google Colab с использованием TensorFlow и CUDA. Предусмотрена возможность настройки параметров генерации и визуализации латентного пространства.\n\n' +
       'Проект демонстрирует возможности GAN в задачах синтеза изображений, применимых в геймдеве, маркетинге и создании синтетических датасетов.',
     stack: 'Python, TensorFlow, StyleGAN2, Google Colab, CUDA',
-    framework: 'TensorFlow / StyleGAN2',
+    framework: 'Python',
     tags: ['GAN', 'Deep Learning'],
 
     demoUrl: '',
