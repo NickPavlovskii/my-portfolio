@@ -1,8 +1,8 @@
 <template>
   <v-container class="projects-page min-h-screen bg-gray-100 py-6">
     <name-display
-      :name="name"
       letterColor="#08b200"
+      :name="name"
     />
     <v-row
       justify="center"

@@ -29,7 +29,6 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-
   import { events as educationAndWork } from './events'
 
   const props = defineProps<{

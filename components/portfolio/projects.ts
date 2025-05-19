@@ -37,7 +37,7 @@ export const PROJECTS = [
     github: 'https://github.com/your-username/career-week-site',
     demoUrl: 'https://career-week-demo.app',
     projectUrl: '/portfolio/career-week',
-    images: ['/images/career-week/screen1.png'],
+    images: [],
     links: [
       {
         name: 'GitHub',
