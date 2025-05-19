@@ -113,7 +113,7 @@
           class="carousel"
         >
           <h3
-            v-if="project?.images"
+            v-if="project?.images.length"
             class="section-subheading"
           >
            Фотографии
